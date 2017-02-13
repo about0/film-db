@@ -4,10 +4,13 @@ import React, {
 } from 'react';
 import Axios from 'axios';
 
+const FILMS = [];
+
 class FilmDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      films: [],
       cover: ''
     }
   }
@@ -15,10 +18,13 @@ class FilmDetails extends Component {
   componentDidMount() {
     this.serverRequest = Axios.get('https://raw.githubusercontent.com/about0/film-db/master/src/data/dummyFilms.json')
       .then(result => {
+        result.data.films.forEach(film => {
+          FILMS.push(film)
+        });
         this.setState({
-          cover: result.data[0].cover_image
-        },
-        console.log(result.data[0]))
+          cover: result.data.films[0].cover_image
+        });
+        console.log(FILMS);
       })
   }
 
@@ -30,6 +36,7 @@ class FilmDetails extends Component {
     return (
       <div>
         <img src={this.state.cover} alt=""/>
+        <div>{this.state.films}</div>
       </div>
     );
   }
