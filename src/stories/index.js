@@ -2,7 +2,7 @@ import React from 'react';
 import {storiesOf, action, linkTo} from '@kadira/storybook';
 import Button from './Button';
 import Welcome from './Welcome';
-import FilmDetails from '../components/film';
+import FilmDetails from '../components/FilmList';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (

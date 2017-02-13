@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import FilmDetails from './components/film';
+import FilmList from './components/FilmList';
 
 class App extends Component {
   render() {
     return (
-      <FilmDetails />
+      <FilmList />
     );
   }
 }
