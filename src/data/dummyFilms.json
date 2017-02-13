@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "The Nice Guys",
+    "rating": "R",
+    "year": 2016,
+    "format": "Blu-Ray",
+    "cast": [
+      "Russell Crowe",
+      "Ryan Gosling",
+      "Angourie Rice",
+      "Matt Bomer",
+      "Margaret Qualley",
+      "Yaya DaCosta",
+      "Keith David",
+      "Beau Knapp"
+    ],
+    "cover_image": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjcwNDA5MDYyNl5BMl5BanBnXkFtZTgwNjg0NDkzNzE@._V1_SY1000_CR0,0,674,1000_AL_.jpg"
+  }
+]
