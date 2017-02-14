@@ -1,7 +1,7 @@
 import React, {
-  Component,
-  PropTypes,
+  Component
 } from 'react';
+import DeleteFilmButton from '../shared/DeleteButton';
 
 class FilmDetails extends Component {
   constructor(props, context) {
@@ -60,7 +60,7 @@ class FilmDetails extends Component {
     return (
       <div style={containerStyle}>
         <h3>{this.props.name}</h3>
-      <img
+      <img alt={`Cover ${this.props.name}`}
         id="film-item"
         src={this.props.cover}
         style={itemStyle}
@@ -69,6 +69,7 @@ class FilmDetails extends Component {
         <div style={ratingStyle}>
           {this.props.rating}
         </div>
+        <DeleteFilmButton unId={this.props.unId} update={this.props.callBack}/>
         <div>
           {this.props.year}
         </div>
@@ -81,7 +82,11 @@ class FilmDetails extends Component {
   }
 }
 
-FilmDetails.propTypes = {};
+FilmDetails.propTypes = {
+  callBack: React.PropTypes.func,
+  year: React.PropTypes.number,
+  cover: React.PropTypes.string
+};
 FilmDetails.defaultProps = {};
 
 export default FilmDetails;

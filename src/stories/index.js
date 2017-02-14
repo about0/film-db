@@ -1,8 +1,10 @@
 import React from 'react';
 import {storiesOf, action, linkTo} from '@kadira/storybook';
-import Button from './Button';
+import 'bootstrap/dist/css/bootstrap.css';
 import Welcome from './Welcome';
-import FilmDetails from '../components/FilmList';
+import FilmDetails from '../components/film/FilmList';
+import Button from '../components/shared/Button';
+import DeleteFilmButton from '../components/shared/DeleteButton';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -10,11 +12,11 @@ storiesOf('Welcome', module)
   ));
 
 storiesOf('Button', module)
-  .add('with text', () => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
+  .add('Basic button', () => (
+    <Button value="Just a button"/>
   ))
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
+  .add('Delete button', () => (
+    <DeleteFilmButton />
   ));
 
 storiesOf('Film Details', module)

@@ -1,36 +1,43 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 import FilmDetails from './FilmDetails';
 
+const REQ_URL = 'http://localhost:3333/api/films';
 
 class FilmList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       films: []
-    }
+    };
+
+    this.update = this.update.bind(this);
+  }
+
+serverRequest() {
+  const FILMS = [];
+    axios.get(REQ_URL)
+    .then(result => {
+      result.data.forEach(film => {
+        FILMS.push(film)
+      });
+      this.setState({
+        films: FILMS
+      });
+      console.log(FILMS, FILMS.length);
+    });
+}
+
+  update(){
+    this.serverRequest();
   }
 
   componentDidMount() {
-    const FILMS = [];
-    this.serverRequest = Axios.get('https://raw.githubusercontent.com/about0/film-db/master/src/data/dummyFilms.json')
-      .then(result => {
-        result.data.films.forEach(film => {
-          FILMS.push(film)
-        });
-        this.setState({
-          films: FILMS
-        });
-        console.log(this.state);
-      })
+    this.serverRequest();
   }
 
-  componentWillUnmount() {
-    this.serverRequest.abort()
-  }
 
   render() {
     const filmList = [];
@@ -38,12 +45,14 @@ class FilmList extends Component {
       filmList.push(
         <FilmDetails
           cover={film.cover_image}
-          key={film.name}
+          key={film._id}
           rating={film.rating}
           cast={film.cast}
           format={film.format}
           year={film.year}
           name={film.name}
+          unId={film._id}
+          callBack={this.update}
         />)
     });
 
@@ -60,7 +69,14 @@ class FilmList extends Component {
   }
 }
 
-FilmList.propTypes = {};
+FilmList.propTypes = {
+  cover_image: React.PropTypes.string,
+  key: React.PropTypes.number,
+  rating: React.PropTypes.string,
+  cast: React.PropTypes.array,
+  _id: React.PropTypes.string,
+  update: React.PropTypes.func
+};
 FilmList.defaultProps = {};
 
 export default FilmList;
