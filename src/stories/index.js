@@ -3,8 +3,8 @@ import {storiesOf, action, linkTo} from '@kadira/storybook';
 import 'bootstrap/dist/css/bootstrap.css';
 import Welcome from './Welcome';
 import FilmDetails from '../components/film/FilmList';
-import Button from '../components/shared/Button';
 import DeleteFilmButton from '../components/shared/DeleteButton';
+import InfoButton from '../components/shared/InfoButton';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => (
@@ -17,7 +17,10 @@ storiesOf('Button', module)
   ))
   .add('Delete button', () => (
     <DeleteFilmButton />
-  ));
+  ))
+.add('Info button', () => (
+  <InfoButton />
+));
 
 storiesOf('Film Details', module)
   .add('Cover', () => (

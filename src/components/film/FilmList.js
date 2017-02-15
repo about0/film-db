@@ -2,7 +2,7 @@ import React, {
   Component,
 } from 'react';
 import axios from 'axios';
-import FilmDetails from './FilmDetails';
+import FilmDetails from './FilmItem';
 
 const REQ_URL = 'http://localhost:3333/api/films';
 

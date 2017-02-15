@@ -1,42 +1,39 @@
 //noinspection JSUnresolvedVariable
 import React from 'react';
-import Button from './Button';
 import axios from 'axios';
 
-const HOST_URL= 'http://localhost:3333/api';
+const HOST_URL = 'http://localhost:3333/api';
 
 class DeleteFilmButton extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this._deleteFilmCall = this._deleteFilmCall.bind(this);
   }
 
-    _deleteFilmCall() {
-      axios.delete(`${HOST_URL}/films/${this.props.unId}`)
-        .then(res => {
-          console.log(`Successful deleted ${JSON.stringify(res)}`);
-        }, err => {
-          console.log(`Error! ${err}`);
-        }).then(res => {
-          this.props.update(res);
+  _deleteFilmCall() {
+    axios.delete(`${HOST_URL}/films/${this.props.unId}`)
+      .then(res => {
+        console.log(`Successful deleted ${JSON.stringify(res)}`);
+      }, err => {
+        console.log(`Error! ${err}`);
+      }).then(() => {
+      this.props.callBack();
     })
-    }
-
-
-
+  }
 
   render() {
     return (
-      <Button
-        functionType={this._deleteFilmCall}
-        buttonClass="btn-danger"
-      >
-        DELETE
-      </Button>
+        <button
+          onClick={this._deleteFilmCall}
+          className="btn btn-danger"
+        >
+          DELETE
+        </button>
     );
   }
-};
+}
+;
 
 DeleteFilmButton.propTypes = {
   _deleteFilmCall: React.PropTypes.func,
