@@ -43,6 +43,7 @@ class FilmEditModal extends Component {
         console.log(`Error! ${err}`);
       }).then(() => {
       this.props.callBack();
+      this.props.closeModal();
     })
   }
 
@@ -80,12 +81,16 @@ class FilmEditModal extends Component {
           </label>
           <label htmlFor="format">
             Format:
-            <input
+            <select
               type="text"
               name="format"
               defaultValue={this.props.format}
               onChange={this._handleChange}
-            />
+            >
+              <option value="DVD">DVD</option>
+              <option value="Blue-Ray">Blue-Ray</option>
+              <option value="VHS">VHS</option>
+            </select>
           </label>
           <label>
             Cast:

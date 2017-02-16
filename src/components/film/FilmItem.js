@@ -61,11 +61,12 @@ class FilmItem extends Component {
 
     };
 
-    const itemStyle = {
+    const imageStyle = {
       flexWrap: 'wrap',
       width: '100%',
       alignContent: 'center',
-      paddingBottom: 3
+      paddingBottom: 3,
+      cursor: 'pointer'
     };
 
     const nameStyle = {
@@ -79,7 +80,7 @@ class FilmItem extends Component {
         <img alt={`Cover ${this.props.name}`}
              id="film-item"
              src={this.props.cover}
-             style={itemStyle}
+             style={imageStyle}
              onClick={this._handleOpenModal}
         />
         <div style={{display: 'inline-block', width:'100%'}}>
