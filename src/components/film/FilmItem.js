@@ -1,24 +1,50 @@
 import React, {
   Component
 } from 'react';
+
 import DeleteFilmButton from '../shared/DeleteButton';
 import InfoButton from '../shared/InfoButton';
-import FilmDetails from './FilmDetails';
+import FilmDetailsModal from './FilmDetailsModal';
+import FilmEditModal from './FilmEditModal';
 
 class FilmItem extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      isToggled: false
+      showInfoModal: false,
+      showEditModal: false
     };
-    this._handleClick = this._handleClick.bind(this);
+
+    this._handleOpenModal = this._handleOpenModal.bind(this);
+    this._handleCloseModal = this._handleCloseModal.bind(this);
+    this._handleOpenEditModal = this._handleOpenEditModal.bind(this);
+    this._handleCloseEditModal = this._handleCloseEditModal.bind(this);
   }
 
-  _handleClick(e) {
+
+  _handleOpenModal() {
     this.setState({
-      isToggled: !this.state.isToggled
-    });
+      showInfoModal: true
+    })
+  }
+
+  _handleCloseModal() {
+    this.setState({
+      showInfoModal: false
+    })
+  }
+
+  _handleOpenEditModal() {
+    this.setState({
+      showEditModal: true
+    })
+  }
+
+  _handleCloseEditModal() {
+    this.setState({
+      showEditModal: false
+    })
   }
 
   render() {
@@ -31,7 +57,8 @@ class FilmItem extends Component {
       padding: 5,
       boxShadow: '7px 10px 26px 2px rgba(0,0,0,0.75)',
       alignContent: 'center',
-      fontFamily: 'helvetica'
+      fontFamily: 'helvetica',
+
     };
 
     const itemStyle = {
@@ -53,16 +80,27 @@ class FilmItem extends Component {
              id="film-item"
              src={this.props.cover}
              style={itemStyle}
-             onClick={this._handleClick}
+             onClick={this._handleOpenModal}
         />
         <div style={{display: 'inline-block', width:'100%'}}>
           <DeleteFilmButton {...this.props}/>
-          <InfoButton toggleDetails={this._handleClick}/>
-          <FilmDetails
-            {...this.props}
-            closeModal={this._handleClick}
-            isToggled={this.state.isToggled}/>
+          <InfoButton toggleDetails={this._handleOpenModal}/>
+          <button
+            className="btn btn-default"
+            onClick={this._handleOpenEditModal}
+            style={{marginLeft: 5}}>
+            Edit
+          </button>
         </div>
+        <FilmDetailsModal
+          {...this.props}
+          closeModal={this._handleCloseModal}
+          showInfoModal={this.state.showInfoModal}/>
+        <FilmEditModal
+          {...this.props}
+          closeModal={this._handleCloseEditModal}
+          showEditModal={this.state.showEditModal}
+        />
       </div>
     );
   }

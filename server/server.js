@@ -25,8 +25,8 @@ const app = express();
   app.use(bodyParser.json())
   app.use('/', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", ['GET', 'DELETE']);
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    res.header("Access-Control-Allow-Methods", ['GET', 'DELETE', 'PUT', 'POST']);
     next();
   });
 

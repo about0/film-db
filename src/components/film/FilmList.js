@@ -53,16 +53,19 @@ serverRequest() {
           name={film.name}
           unId={film._id}
           callBack={this.update}
+          heigth={this.state.height}
         />)
     });
 
     const containerStyles = {
       padding: 10,
       background: 'url(http://api.thumbr.it/whitenoise-361x370.png?background=35515cff&noise=626262&density=38&opacity=70)',
+
+      overflowY: 'hidden'
     };
 
     return (
-      <div style={containerStyles}>
+      <div style={containerStyles} ref="filmList">
         <ul>{filmList}</ul>
       </div>
     );
