@@ -1,43 +1,27 @@
 import React, {
   Component,
 } from 'react';
-import axios from 'axios';
 import FilmDetails from './FilmItem';
 import AddModal from './FilmAddModal';
 
-const REQ_URL = 'http://localhost:3333/api/films';
+import {getAllFilms} from '../../API/apiFunctions';
 
 class FilmList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      films: [],
       showAddFilmModal: false,
-      sortOption: 'byDateAsc'
+      films: []
     };
 
     this.update = this.update.bind(this);
     this._handleAddFilm = this._handleAddFilm.bind(this);
     this._handleCloseModal = this._handleCloseModal.bind(this);
-    this._sortBy = this._sortBy.bind(this);
-  }
-
-  serverRequest() {
-    const FILMS = [];
-
-    axios.get(REQ_URL)
-      .then(result => {
-        result.data.forEach(film => {
-          FILMS.push(film)
-        });
-        this.setState({
-          films: FILMS
-        });
-      });
+    this._sortByName = this._sortByName.bind(this);
   }
 
   update() {
-    this.serverRequest();
+    // getAllFilms();
   }
 
   _handleAddFilm() {
@@ -52,56 +36,42 @@ class FilmList extends Component {
     })
   }
 
-  _sortBy() {
-    let sortedFilms = [];
-    if (this.state.sortOption === 'byDateAsc') {
-      sortedFilms = this.state.films.sort(function (a, b) {
-        a = new Date(a.createdAt);
-        b = new Date(b.createdAt);
-        return a > b ? -1 : a < b ? 1 : 0;
-      });
-    } else if (this.state.sortOption === 'byDateDesc') {
-      sortedFilms = this.state.films.sort(function (a, b) {
-        a = new Date(a.createdAt);
-        b = new Date(b.createdAt);
-        return a < b ? -1 : a > b ? 1 : 0;
-      });
-    } else if (this.state.sortOption === 'byNameAsc') {
-      sortedFilms = this.state.films.sort(function (a, b) {
-        a = new Date(a.name);
-        b = new Date(b.name);
-        return a < b ? -1 : a > b ? 1 : 0;
-      });
-    }
-      console.log(sortedFilms);
+  _sortByName() {
+    const sortedFilms = this.state.films.sort(function (a, b) {
+      a = a.name.toLowerCase();
+      b = b.name.toLowerCase();
+      return a < b ? -1 : a > b ? 1 : 0;
+    });
     this.setState({
       films: sortedFilms
     })
   }
 
   componentDidMount() {
-    this.serverRequest();
+    this.setState({
+      films: getAllFilms()
+    })
   }
-
-
 
   render() {
     const filmList = [];
-    this.state.films.forEach(film => {
-      filmList.push(
-        <FilmDetails
-          cover={film.cover_image}
-          key={film._id}
-          rating={film.rating}
-          cast={film.cast}
-          format={film.format}
-          year={film.year}
-          name={film.name}
-          unId={film._id}
-          callBack={this.update}
-          heigth={this.state.height}
-        />)
-    });
+    console.log('Log before push', this.state.films, filmList);
+      this.state.films.forEach(film => {
+        filmList.push(
+          <FilmDetails
+            cover={film.cover_image}
+            key={film._id}
+            rating={film.rating}
+            cast={film.cast}
+            format={film.format}
+            year={film.year}
+            name={film.name}
+            unId={film._id}
+            callBack={this.update}
+          />)
+      });
+    console.log('Log after push', this.state.films, filmList);
+
 
     const containerStyles = {
       padding: 10,
@@ -112,17 +82,16 @@ class FilmList extends Component {
     return (
       <div style={containerStyles} ref="filmList">
         <button
-          style={{position: 'fixed'}}
           onClick={this._handleAddFilm}
         >Add Film
         </button>
+        <button onClick={this._sortByName}>Sort by Name</button>
         <ul>{filmList}</ul>
         <AddModal
           closeModal={this._handleCloseModal}
           showAddFilmModal={this.state.showAddFilmModal}
           callBack={this.update}
         />
-        <button onClick={this._sortBy}>Sort</button>
       </div>
     );
   }

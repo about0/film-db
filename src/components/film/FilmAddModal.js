@@ -21,7 +21,7 @@ class FilmAddModal extends Component {
 
   _handleChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value.trim();
     const name = target.name;
     this.setState({
       [name]: value
@@ -31,7 +31,7 @@ class FilmAddModal extends Component {
   _handleSubmit(event) {
     event.preventDefault();
 
-    if(!this.state.name) return;
+    if (!this.state.name) return;
     axios.post(`${HOST_URL}/films/`, {
         name: this.state.name,
         cover_image: this.state.cover_image,
@@ -65,6 +65,7 @@ class FilmAddModal extends Component {
                      placeholder="Enter Film name"
                      onChange={this._handleChange}/>
             </label>
+            <br/>
             <label>
               Edit Image source:
               <input type="text"
@@ -75,6 +76,7 @@ class FilmAddModal extends Component {
 
               />
             </label>
+            <br/>
             <label>
               Year:
               <input
@@ -85,6 +87,7 @@ class FilmAddModal extends Component {
                 onChange={this._handleChange}
               />
             </label>
+            <br/>
             <label htmlFor="format">
               Format:
               <select
@@ -99,6 +102,7 @@ class FilmAddModal extends Component {
                 <option value="VHS">VHS</option>
               </select>
             </label>
+            <br/>
             <label htmlFor="cast">
               Cast:
               <textarea
@@ -109,10 +113,13 @@ class FilmAddModal extends Component {
                 onChange={this._handleChange}
               />
             </label>
-            <input type="submit" value="Save"/>
+            <br/>
+            <input type="submit" value="Save" className="btn btn-lg btn-success" style={{position: "absolute", bottom: 5, right: 5, margin: 0}}/>
+            <img src={this.state.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, width: "50%"}}/>
           </div>
         </form>
-        <button onClick={this.props.closeModal}>Close</button>
+        <br/>
+        <button onClick={this.props.closeModal} className="btn btn-lg btn-danger" style={{position: "absolute", bottom: 5, left: 5, margin: 0}}>Close</button>
       </ReactModal>
     );
   }
