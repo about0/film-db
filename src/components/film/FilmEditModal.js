@@ -105,7 +105,7 @@ class FilmEditModal extends Component {
               onChange={this._handleChange}
             />
           </label>
-          <img src={this.state.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, width: "50%"}}/>
+          <img src={this.state.cover_image || this.props.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, width: "50%"}}/>
           <input type="submit" value="Save"/>
         </form>
         <button onClick={this.props.closeModal}>Close</button>

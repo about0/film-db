@@ -31,7 +31,10 @@ class FilmAddModal extends Component {
   _handleSubmit(event) {
     event.preventDefault();
 
-    if (!this.state.name) return;
+    if (!this.state.name) {
+      alert('Name is required!');
+      return;
+    }
     axios.post(`${HOST}/api/films/`, {
         name: this.state.name,
         cover_image: this.state.cover_image,
