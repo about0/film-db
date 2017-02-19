@@ -4,7 +4,11 @@ import React, {
 import FilmDetails from './FilmItem';
 import AddModal from './FilmAddModal';
 
+import request from 'request';
 import {getAllFilms} from '../../API/apiFunctions';
+
+const HOST = 'http://95.158.2.12:3333';
+
 
 class FilmList extends Component {
   constructor(props) {
@@ -14,14 +18,10 @@ class FilmList extends Component {
       films: []
     };
 
-    this.update = this.update.bind(this);
     this._handleAddFilm = this._handleAddFilm.bind(this);
     this._handleCloseModal = this._handleCloseModal.bind(this);
     this._sortByName = this._sortByName.bind(this);
-  }
-
-  update() {
-    // getAllFilms();
+    this.getAllFilms = this.getAllFilms.bind(this);
   }
 
   _handleAddFilm() {
@@ -29,6 +29,23 @@ class FilmList extends Component {
       showAddFilmModal: true
     })
   }
+
+  getAllFilms() {
+    const FILMS = [];
+    request(`${HOST}/api/films`, (error, response, body) => {
+      if (!error && response.statusCode === 200) {
+        let parsedFilms = JSON.parse(body);
+        console.log(parsedFilms);
+        parsedFilms.forEach(film => {
+          FILMS.push(film);
+        });
+        this.setState({
+          films: FILMS
+        })
+      }
+    })
+  }
+
 
   _handleCloseModal() {
     this.setState({
@@ -47,30 +64,32 @@ class FilmList extends Component {
     })
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    const FILMS = getAllFilms();
     this.setState({
-      films: getAllFilms()
-    })
+      films: FILMS
+    });
+    console.log('Request inside ComponentWillMount');
+
   }
 
   render() {
     const filmList = [];
-    console.log('Log before push', this.state.films, filmList);
-      this.state.films.forEach(film => {
-        filmList.push(
-          <FilmDetails
-            cover={film.cover_image}
-            key={film._id}
-            rating={film.rating}
-            cast={film.cast}
-            format={film.format}
-            year={film.year}
-            name={film.name}
-            unId={film._id}
-            callBack={this.update}
-          />)
-      });
-    console.log('Log after push', this.state.films, filmList);
+    console.log('Render function begin');
+    this.state.films.forEach(film => {
+      filmList.push(
+        <FilmDetails
+          cover={film.cover_image}
+          key={film._id}
+          rating={film.rating}
+          cast={film.cast}
+          format={film.format}
+          year={film.year}
+          name={film.name}
+          unId={film._id}
+          callBack={this.getAllFilms}
+        />)
+    });
 
 
     const containerStyles = {
@@ -86,11 +105,11 @@ class FilmList extends Component {
         >Add Film
         </button>
         <button onClick={this._sortByName}>Sort by Name</button>
-        <ul>{filmList}</ul>
+
         <AddModal
           closeModal={this._handleCloseModal}
           showAddFilmModal={this.state.showAddFilmModal}
-          callBack={this.update}
+          callBack={this.getAllFilms}
         />
       </div>
     );

@@ -21,13 +21,15 @@
     "body-parser": "^1.16.1",
     "bootstrap": "^3.3.7",
     "express": "^4.14.1",
+    "http-client": "^4.3.1",
     "jquery": "^3.1.1",
     "node-restful": "^0.2.6",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.2",
     "react-modal": "^1.6.5",
-    "react-router": "^3.0.2"
+    "react-router": "^3.0.2",
+    "request": "^2.79.0"
   },
   "scripts": {
     "start": "react-scripts start",
