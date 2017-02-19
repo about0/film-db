@@ -5,7 +5,7 @@ import React, {
 import ReactModal from 'react-modal';
 import axios from 'axios';
 
-const HOST = 'http://95.158.2.12:3333';
+const HOST = 'https://95.158.2.12:3333';
 
 class FilmEditModal extends Component {
   constructor(props, context) {
