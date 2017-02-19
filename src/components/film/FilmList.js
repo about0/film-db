@@ -7,7 +7,7 @@ import AddModal from './FilmAddModal';
 import request from 'request';
 import {getAllFilms} from '../../API/apiFunctions';
 
-const HOST = 'http://95.158.2.12:3333';
+const HOST = 'https://95.158.2.12:3333';
 
 
 class FilmList extends Component {

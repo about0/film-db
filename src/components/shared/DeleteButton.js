@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const HOST = 'http://95.158.2.12:3333';
+const HOST = 'https://95.158.2.12:3333';
 
 class DeleteFilmButton extends React.Component {
   constructor(props) {
