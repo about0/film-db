@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f5be615-b9ae-4e84-a400-f46d2972fea8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/film/FilmAddModal.js" afterPath="$PROJECT_DIR$/src/components/film/FilmAddModal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/film/FilmList.js" afterPath="$PROJECT_DIR$/src/components/film/FilmList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/shared/DeleteButton.js" afterPath="$PROJECT_DIR$/src/components/shared/DeleteButton.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilmAddModal.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FilmAddModal.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/film/FilmAddModal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="487">
+              <caret line="52" column="3" lean-forward="true" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -79,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilmList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FilmList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/film/FilmList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="468">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -136,8 +135,8 @@
         <option value="$PROJECT_DIR$/src/components/film/FilmEditModal.js" />
         <option value="$PROJECT_DIR$/database.rules.json" />
         <option value="$PROJECT_DIR$/src/components/shared/DeleteButton.js" />
-        <option value="$PROJECT_DIR$/src/components/film/FilmAddModal.js" />
         <option value="$PROJECT_DIR$/src/components/film/FilmList.js" />
+        <option value="$PROJECT_DIR$/src/components/film/FilmAddModal.js" />
       </list>
     </option>
   </component>
@@ -431,7 +430,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132293000" />
+    <option name="totallyTimeSpent" value="132971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="945" y="0" width="980" height="1047" extended-state="0" />
@@ -777,16 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/film/FilmAddModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/film/FilmItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2236">
@@ -799,10 +788,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/film/FilmList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        <state relative-caret-position="468">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/film/FilmAddModal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="52" column="3" lean-forward="true" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
           </folding>
         </state>
       </provider>

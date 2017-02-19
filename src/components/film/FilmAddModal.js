@@ -45,6 +45,9 @@ class FilmAddModal extends Component {
         console.log(`Error! ${err}`);
       }).then(() => {
       this.props.callBack();
+      this.setState({
+        cover_image: ''
+      });
       this.props.closeModal();
     })
   }
