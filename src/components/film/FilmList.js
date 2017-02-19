@@ -66,7 +66,7 @@ class FilmList extends Component {
 
   componentWillMount() {
     this.getAllFilms();
-    console.log('Request inside ComponentWillMount');
+    console.log('Request inside ComponentWillMount http');
   }
 
   render() {
