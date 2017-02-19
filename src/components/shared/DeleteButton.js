@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const HOST_URL = 'http://localhost:3333/api';
+const HOST = 'http://95.158.2.12:3333';
 
 class DeleteFilmButton extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class DeleteFilmButton extends React.Component {
   }
 
   _deleteFilmCall() {
-    axios.delete(`${HOST_URL}/films/${this.props.unId}`)
+    axios.delete(`${HOST}/api/films/${this.props.unId}`)
       .then(res => {
         console.log(`Successful deleted ${JSON.stringify(res)}`);
       }, err => {

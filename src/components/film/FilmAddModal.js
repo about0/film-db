@@ -5,7 +5,7 @@ import React, {
 import ReactModal from 'react-modal';
 import axios from 'axios';
 
-const HOST_URL = 'http://localhost:3333/api';
+const HOST = 'http://95.158.2.12:3333';
 
 class FilmAddModal extends Component {
   constructor(props, context) {
@@ -32,7 +32,7 @@ class FilmAddModal extends Component {
     event.preventDefault();
 
     if (!this.state.name) return;
-    axios.post(`${HOST_URL}/films/`, {
+    axios.post(`${HOST}/api/films/`, {
         name: this.state.name,
         cover_image: this.state.cover_image,
         year: this.state.year,

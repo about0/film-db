@@ -65,12 +65,8 @@ class FilmList extends Component {
   }
 
   componentWillMount() {
-    const FILMS = getAllFilms();
-    this.setState({
-      films: FILMS
-    });
+    this.getAllFilms();
     console.log('Request inside ComponentWillMount');
-
   }
 
   render() {
@@ -105,7 +101,7 @@ class FilmList extends Component {
         >Add Film
         </button>
         <button onClick={this._sortByName}>Sort by Name</button>
-
+        <ul>{filmList}</ul>
         <AddModal
           closeModal={this._handleCloseModal}
           showAddFilmModal={this.state.showAddFilmModal}
