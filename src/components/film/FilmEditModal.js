@@ -30,7 +30,7 @@ class FilmEditModal extends Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    axios.put(`${HOST}/films/${this.props.unId}`, {
+    axios.put(`${HOST}/api/films/${this.props.unId}`, {
         name: this.state.name,
         cover_image: this.state.cover_image,
         year: this.state.year,
@@ -61,6 +61,7 @@ class FilmEditModal extends Component {
                    defaultValue={this.props.name}
                    onChange={this._handleChange}/>
           </label>
+          <br/>
           <label>
             Edit Image source:
             <input type="text"
@@ -70,6 +71,7 @@ class FilmEditModal extends Component {
 
             />
           </label>
+          <br/>
           <label>
             Year:
             <input
@@ -79,6 +81,7 @@ class FilmEditModal extends Component {
               onChange={this._handleChange}
             />
           </label>
+          <br/>
           <label htmlFor="format">
             Format:
             <select
@@ -92,6 +95,7 @@ class FilmEditModal extends Component {
               <option value="VHS">VHS</option>
             </select>
           </label>
+          <br/>
           <label>
             Cast:
             <textarea
@@ -101,6 +105,7 @@ class FilmEditModal extends Component {
               onChange={this._handleChange}
             />
           </label>
+          <img src={this.state.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, width: "50%"}}/>
           <input type="submit" value="Save"/>
         </form>
         <button onClick={this.props.closeModal}>Close</button>
