@@ -90,7 +90,7 @@ class FilmList extends Component {
 
     const containerStyles = {
       padding: 10,
-      background: 'url(http://api.thumbr.it/whitenoise-361x370.png?background=35515cff&noise=626262&density=38&opacity=70)',
+      backgroundColor: '#151B32',
       overflowY: 'hidden'
     };
 
