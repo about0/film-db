@@ -75,7 +75,7 @@ class FilmList extends Component {
     this.state.films.forEach(film => {
       filmList.push(
         <FilmDetails
-          cover={film.cover_image}
+          cover_image={film.cover_image}
           key={film._id}
           rating={film.rating}
           cast={film.cast}
@@ -90,7 +90,7 @@ class FilmList extends Component {
 
     const containerStyles = {
       padding: 10,
-      backgroundColor: '#151B32',
+      backgroundColor: '#e9ebee',
       overflowY: 'hidden'
     };
 

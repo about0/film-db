@@ -49,24 +49,26 @@ class FilmItem extends Component {
 
   render() {
     const containerStyle = {
-      height: 'auto',
-      width: '200px',
-      backgroundColor: '#FAF7FF',
+      maxWidth: '200px',
+      backgroundColor: '#ffffff',
       display: 'inline-block',
-      margin: 5,
+      margin: 2,
       padding: 5,
-      boxShadow: '7px 10px 26px 2px rgba(0,0,0,0.75)',
       alignContent: 'center',
       fontFamily: 'helvetica',
+      border: '1px solid #ACACAC',
+      borderRadius: 3
 
     };
 
     const imageStyle = {
       flexWrap: 'wrap',
-      width: '100%',
+      maxWidth: '100%',
+      maxHeight: 'auto',
       alignContent: 'center',
-      paddingBottom: 3,
-      cursor: 'pointer'
+      marginBottom: 5,
+      cursor: 'pointer',
+      border: '2px solid #ACACAC'
     };
 
     const nameStyle = {
@@ -79,7 +81,7 @@ class FilmItem extends Component {
         <h3 style={nameStyle}>{this.props.name}</h3>
         <img alt={`Cover ${this.props.name}`}
              id="film-item"
-             src={this.props.cover}
+             src={this.props.cover_image}
              style={imageStyle}
              onClick={this._handleOpenModal}
         />

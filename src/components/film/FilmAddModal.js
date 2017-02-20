@@ -121,7 +121,7 @@ class FilmAddModal extends Component {
             </label>
             <br/>
             <input type="submit" value="Save" className="btn btn-lg btn-success" style={{position: "absolute", bottom: 5, right: 5, margin: 0}}/>
-            <img src={this.state.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, width: "50%"}}/>
+            <img src={this.state.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, height: "60vh", border: '2px double #ACACAC'}}/>
           </div>
         </form>
         <br/>

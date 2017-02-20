@@ -15,7 +15,15 @@ class FilmDetailsModal extends Component {
           <div>
             {this.props.name || 'Not defined'}
           </div>
-          <img src={this.props.cover} alt="" width={'50%'}/>
+          <img src={this.props.cover_image}
+               alt=""
+               style={{position: "absolute",
+                 top: 25,
+                 right: 25,
+                 maxWidth: '30vw',
+                 maxHeight: "60vh",
+                 border: '2px double #ACACAC'}}
+          />
           <div>
             {this.props.year || 'Not defined'}
           </div>

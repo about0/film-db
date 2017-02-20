@@ -68,7 +68,6 @@ class FilmEditModal extends Component {
                    name="cover_image"
                    defaultValue={this.props.cover}
                    onChange={this._handleChange}
-
             />
           </label>
           <br/>
@@ -105,10 +104,10 @@ class FilmEditModal extends Component {
               onChange={this._handleChange}
             />
           </label>
-          <img src={this.state.cover_image || this.props.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, width: "50%"}}/>
-          <input type="submit" value="Save"/>
+          <img src={this.state.cover_image || this.props.cover_image} alt="" style={{position: "absolute", top: 25, right: 25, maxHeight: "60vh", maxWidth: '50vw',border: '2px double #ACACAC'}}/>
+          <input type="submit" value="Save" className="btn btn-lg btn-success" style={{position: "absolute", bottom: 5, right: 5, margin: 0}}/>
         </form>
-        <button onClick={this.props.closeModal}>Close</button>
+        <button onClick={this.props.closeModal} className="btn btn-lg btn-danger" style={{position: "absolute", bottom: 5, left: 5, margin: 0}}>Close</button>
       </ReactModal>
     );
   }
